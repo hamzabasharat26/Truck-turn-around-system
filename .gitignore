@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.env/
+.venv/
+ENV/
+
+# VS Code
+.vscode/
+
+# Ignore sensitive or local state files if you don't want them tracked
+# config.json
+# events.json
+# .env

@@ -1,0 +1,125 @@
+{
+  "trucks": [
+    {
+      "id": "truck_001",
+      "license_plate": "BI CD 8008",
+      "driver_name": "Jimmy",
+      "bay": "Bay 1",
+      "events": [
+        {
+          "event": "Docking Area Empty",
+          "timestamp": "2025-10-27T11:00:00Z"
+        },
+        {
+          "event": "Traffic Light Green",
+          "timestamp": "2025-10-27T11:00:01Z"
+        },
+        {
+          "event": "Traffic Light turned Yellow",
+          "timestamp": "2025-10-27T11:00:30Z"
+        },
+        {
+          "event": "Traffic Light turned Red",
+          "timestamp": "2025-10-27T11:01:00Z"
+        },
+        {
+          "event": "Truck Arrived at Facility",
+          "timestamp": "2025-10-27T11:01:05Z"
+        },
+        {
+          "event": "Truck Backing Off (Outdoor)",
+          "timestamp": "2025-10-27T11:01:10Z"
+        },
+        {
+          "event": "Truck Stopped at Gate (Outdoor)",
+          "timestamp": "2025-10-27T11:02:00Z"
+        },
+        {
+          "event": "A Worker Spotted (Indoor)",
+          "timestamp": "2025-10-27T11:03:00Z"
+        },
+        {
+          "event": "Worker Pressed the Button",
+          "timestamp": "2025-10-27T11:03:15Z"
+        },
+        {
+          "event": "Docking Gate Opening",
+          "timestamp": "2025-10-27T11:03:16Z"
+        },
+        {
+          "event": "Door Level Extending",
+          "timestamp": "2025-10-27T11:03:45Z"
+        },
+        {
+          "event": "Worker Lowering the Buffer",
+          "timestamp": "2025-10-27T11:04:15Z"
+        },
+        {
+          "event": "Forklift Unloading the Truck",
+          "timestamp": "2025-10-27T11:06:00Z"
+        },
+        {
+          "event": "Truck is being Unloaded",
+          "timestamp": "2025-10-27T11:07:00Z"
+        },
+        {
+          "event": "Truck is Empty Now",
+          "timestamp": "2025-10-27T11:07:30Z"
+        },
+        {
+          "event": "Worker Appears Again",
+          "timestamp": "2025-10-27T11:07:45Z"
+        },
+        {
+          "event": "Truck Doors Released",
+          "timestamp": "2025-10-27T11:08:30Z"
+        },
+        {
+          "event": "Truck Doors Closed",
+          "timestamp": "2025-10-27T11:08:35Z"
+        },
+        {
+          "event": "1st Buffer Back to Home Position",
+          "timestamp": "2025-10-27T11:09:00Z"
+        },
+        {
+          "event": "2nd Buffer Back to Home Position",
+          "timestamp": "2025-10-27T11:09:15Z"
+        },
+        {
+          "event": "Worker Appears",
+          "timestamp": "2025-10-27T11:09:20Z"
+        },
+        {
+          "event": "Worker Leveled Dock",
+          "timestamp": "2025-10-27T11:09:30Z"
+        },
+        {
+          "event": "Worker Lock Door",
+          "timestamp": "2025-10-27T11:09:45Z"
+        },
+        {
+          "event": "Dock Door is being Closed",
+          "timestamp": "2025-10-27T11:10:30Z"
+        },
+        {
+          "event": "Dock Door Closed Now",
+          "timestamp": "2025-10-27T11:10:31Z"
+        },
+        {
+          "event": "Taffic Light turned Red",
+          "timestamp": "2025-10-27T11:11:00Z"
+        },
+        {
+          "event": "Traffic Light turned Green",
+          "timestamp": "2025-10-27T11:11:30Z"
+        },
+        {
+          "event": "Truck Left the Docking Facility",
+          "timestamp": "2025-10-27T11:12:00Z"
+        }
+      ]
+    }
+  ]
+}
+

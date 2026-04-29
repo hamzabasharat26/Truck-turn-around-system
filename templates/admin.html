@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid-container-admin">
+    <div class="card">
+        <h2>Manage Users</h2>
+        <form class="admin-form" method="POST" action="{{ url_for('admin_panel') }}">
+            <input type="hidden" name="action" value="add_user">
+            <fieldset>
+                <div class="form-group">
+                    <label for="user-name">User Name / Email</label>
+                    <input type="text" id="user-name" name="user-name" placeholder="user@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-role">Assign Role</label>
+                    <select id="user-role" name="user-role" required>
+                        <option value="Operations">Operations Manager</option>
+                        <option value="Supervisor">Supervisor</option>
+                        <option value="Executive">Executive</option>
+                        <option value="Safety Officer">Safety Officer</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="button">Add User</button>
+            </fieldset>
+        </form>
+
+        <h3 class="admin-subheader">Current Users</h3>
+        <table class="admin-table">
+            <thead><tr><th>Name</th><th>Role</th><th>Actions</th></tr></thead>
+            <tbody>
+                {% for user in config.get('users', []) %}
+                <tr>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>
+                        <a href="#" class="action-link disabled" title="Edit (Disabled)">Edit</a> | 
+                        <a href="{{ url_for('remove_user', user_name=user.name) }}" 
+                           class="action-link danger" 
+                           onclick="return confirm('Are you sure you want to remove this user?');">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>System Configuration</h2>
+        <form class="admin-form" method="POST" action="{{ url_for('admin_panel') }}">
+            <input type="hidden" name="action" value="save_settings">
+            <fieldset>
+                <div class="form-group">
+                    <label for="sla-threshold">SLA Turnaround Threshold (minutes)</label>
+                    <input type="number" id="sla-threshold" name="sla-threshold" value="{{ config.get('sla_threshold', 45) }}">
+                </div>
+                <div class="form-group">
+                    <label for="idle-alert">Idle Alert Threshold (minutes)</label>
+                    <input type="number" id="idle-alert" name="idle-alert" value="{{ config.get('idle_alert_threshold', 10) }}">
+                </div>
+                <div class="form-group">
+                    <label for="cost-idle">Cost Per Idle Minute ($)</label>
+                    <input type="number" step="0.01" id="cost-idle" name="cost-idle" value="{{ config.get('cost_per_idle_minute', 2.5) }}">
+                </div>
+
+                <h3 class="admin-subheader">Manage Inputs</h3>
+                <div class="form-group">
+                    <label for="cam-input">Yard Camera 1 (Video)</label>
+                    <input type="text" id="cam-input" name="cam-input" value="{{ config.get('camera_url_1', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="gate-rfid">Gate RFID Reader</label>
+                    <input type="text" id="gate-rfid" name="gate-rfid" value="{{ config.get('gate_rfid_url', '') }}">
+                </div>
+                <button type="submit" class="button">Save Settings</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="card grid-col-span-2">
+        <h2>Export Reports</h2>
+        <p>Generate a snapshot report of dashboard data. (Disabled in live-analysis mode)</p>
+        <div class="form-actions">
+            <a href="{{ url_for('export_csv') }}" class="button-secondary">Export as CSV</a>
+            <a href="{{ url_for('export_pdf') }}" class="button-secondary">Export as PDF</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

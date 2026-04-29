@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid-container-executive">
+    <div class="card kpi-card">
+        <h3>Overall Efficiency Index</h3>
+        <div id="kpi-on-time-exec" class="kpi-value success">0.0%</div>
+        <div class="kpi-desc">On-Time Departures</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>Average Delay (All Trucks)</h3>
+        <div id="kpi-avg-delay-exec" class="kpi-value warning">0.0</div>
+        <div class="kpi-desc">minutes vs. SLA</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>Est. Cost of Idle Time</h3>
+        <div id="kpi-idle-cost-exec" class="kpi-value error">$0.00</div>
+        <div class="kpi-desc">This shift</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>Predicted Improvement</h3>
+        <div class="kpi-value info">+8%</div>
+        <div class="kpi-desc">Next month (AI Model)</div>
+    </div>
+
+    <div class="card grid-col-span-4">
+        <h2>Turnaround Stage Analysis (Last Truck)</h2>
+        <div class="chart-container" style="height: 320px;">
+            <canvas id="stage-duration-chart"></canvas>
+        </div>
+    </div>
+
+    <div class="card grid-col-span-2">
+        <h2>AI Insights & Recommendations</h2>
+        <div class="insight-container">
+            <div class="insight-card">
+                <div class="insight-icon warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></div>
+                <div class="insight-content"><strong>Delay Prediction (87%):</strong> High chance of >10min delay at Bay 2 due to shift change.</div>
+            </div>
+            <div class="insight-card">
+                <div class="insight-icon info"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></div>
+                <div class="insight-content"><strong>Recommendation:</strong> Reallocate Forklift #7 to Bay 3 to prevent new congestion.</div>
+            </div>
+        </div>
+    </div>
+    <div class="card grid-col-span-2">
+        <h2>ROI Impact</h2>
+        <div class="roi-container">
+            <div class="roi-item">
+                <span class="kpi-value success" id="roi-turnaround-reduction">0.0 min</span>
+                <span class="kpi-desc">Avg. Turnaround Reduction</span>
+            </div>
+            <div class="roi-item">
+                <span class="kpi-value success" id="roi-cost-saving">$0.00</span>
+                <span class="kpi-desc">Est. Shift Idle Cost Savings</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

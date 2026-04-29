@@ -1,0 +1,7 @@
+Flask
+fpdf2
+flask-socketio
+eventlet
+opencv-python-headless
+numpy==1.26.4
+gunicorn

@@ -1,0 +1,20 @@
+{
+  "sla_threshold": 45,
+  "idle_alert_threshold": 10,
+  "camera_url_1": "rtsp://192.168.1.100/stream1",
+  "gate_rfid_url": "mqtt://broker.company.com/yard/gate/rfid",
+  "users": [
+    {
+      "name": "admin",
+      "role": "Admin"
+    },
+    {
+      "name": "supervisor@company.com",
+      "role": "Supervisor"
+    },
+    {
+      "name": "director@company.com",
+      "role": "Executive"
+    }
+  ]
+}

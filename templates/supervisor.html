@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="filter-bar">
+    <div class="filter-group">
+        <label for="filter-shift">Shift</label>
+        <select id="filter-shift">
+            <option>All Shifts</option>
+        </select>
+    </div>
+    <div class="filter-group">
+        <label for="filter-date">Date Range</label>
+        <input type="date" id="filter-date" value="{{ today_date }}">
+    </div>
+    <div class="filter-group">
+        <label for="filter-dept">Department</label>
+        <select id="filter-dept">
+            <option>All Departments</option>
+        </select>
+    </div>
+</div>
+
+<div class="grid-container-supervisor">
+    <div class="card kpi-card">
+        <h3>Avg. Turnaround</h3>
+        <div id="kpi-avg-turnaround" class="kpi-value">0.0</div>
+        <div class="kpi-desc">minutes</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>On-Time %</h3>
+        <div id="kpi-on-time" class="kpi-value">0.0%</div>
+        <div class="kpi-desc">SLA: {{SLA_TURNAROUND_MINUTES}} min</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>Total Delayed</h3>
+        <div id="kpi-total-delayed" class="kpi-value">0</div>
+        <div class="kpi-desc">trucks this shift</div>
+    </div>
+    <div class="card kpi-card">
+        <h3>Completed</h3>
+        <div id="kpi-completed-trucks" class="kpi-value">0</div>
+        <div class="kpi-desc">trucks this shift</div>
+    </div>
+
+    <div class="card grid-col-span-2">
+        <h2>Event Distribution</h2>
+        <div class="chart-container" style="height: 280px;">
+            <canvas id="event-distribution-chart"></canvas>
+        </div>
+    </div>
+    <div class="card grid-col-span-2">
+        <h2>Dock Utilization Heatmap</h2>
+        <div id="css-heatmap-container">
+            <div class="heatmap-y-axis">
+                <div class="heatmap-label">Bay 1</div>
+                <div class="heatmap-label">Bay 2</div>
+                <div class="heatmap-label">Bay 3</div>
+                <div class="heatmap-label">Bay 4</div>
+            </div>
+            <div class="heatmap-grid">
+                </div>
+            <div class="heatmap-x-axis">
+                <div class="heatmap-label">08:00</div>
+                <div class="heatmap-label">09:00</div>
+                <div class="heatmap-label">10:00</div>
+                <div class="heatmap-label">11:00</div>
+                <div class="heatmap-label">12:00</div>
+                <div class="heatmap-label">13:00</div>
+                <div class="heatmap-label">14:00</div>
+                <div class="heatmap-label">15:00</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

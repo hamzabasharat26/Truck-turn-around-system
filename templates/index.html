@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="grid-container-operations">
+
+    <div class="grid-col-span-3">
+        <div class="card">
+            <div class="analysis-controls">
+                <h2>Live Video Feed (Yard Cam 1)</h2>
+                <div class="form-actions">
+                    <button id="start-analysis-btn" class="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        Start Analysis
+                    </button>
+                    <button id="stop-analysis-btn" class="button-secondary" style="background-color: var(--accent-red); color: #fff; border: none; display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg>
+                        Stop Analysis
+                    </button>
+                </div>
+            </div>
+            
+            <div id="video-container" class="video-placeholder">
+                <div id="video-placeholder-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video-off"><path d="M10.66 6.11A2 2 0 0 0 8 8v8a2 2 0 0 0 2 2h5.05"/><path d="M16 16.5V14a2 2 0 0 0-2-2h-1.5"/><path d="m2 2 20 20"/><path d="M14 2a2 2 0 0 1 2 2v1l-4.55 4.55"/></svg>
+                    <span>Analysis is stopped.</span>
+                    <small>Click "Start Analysis" to begin the live feed.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Yard & Dock Layout</h2>
+            <div id="yard-map-container">
+                <div class="yard-gate">Gate</div>
+                <div class="yard-area">
+                    <p>Yard Area</p>
+                    <span id="active-trucks-count" class="map-truck-icon">0</span>
+                </div>
+                <div class="dock-bays">
+                    <div id="dock-Bay-1" class="dock-bay available"><strong>Bay 1</strong><small>Available</small></div>
+                    <div id="dock-Bay-2" class="dock-bay available"><strong>Bay 2</strong><small>Available</small></div>
+                    <div id="dock-Bay-3" class="dock-bay available"><strong>Bay 3</strong><small>Available</small></div>
+                    <div id="dock-Bay-4" class="dock-bay available"><strong>Bay 4</strong><small>Available</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-col-span-2">
+        <div class="card">
+            <h2>Live Turnaround Timeline</h2>
+            <div id="live-timeline-panel" class="feed-list timeline-list">
+                <div class="feed-item placeholder" id="timeline-placeholder">
+                    <div class="feed-icon info">i</div>
+                    <div class="feed-content">
+                        <span>Waiting for truck arrival...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Live Event Feed</h2>
+            <div id="event-feed-panel" class="feed-list">
+                <div class="feed-item placeholder" id="event-feed-placeholder">
+                    <div class="feed-icon info">i</div>
+                    <div class="feed-content">
+                        <span>Connecting to event stream...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

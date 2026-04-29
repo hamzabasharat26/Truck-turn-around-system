@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Truck Turnaround System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body 
+    data-sla-minutes="{{ config.get('sla_threshold', 45) }}" 
+    data-idle-cost="{{ config.get('cost_per_idle_minute', 2.5) }}">
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-container"><path d="M22 8.7c0-.9-1-1.4-2.1-.9l-6.1 2.9c-.8.4-1.9.4-2.8 0L4.9 7.8c-1.1-.5-2.1 0-2.1.9v6.5c0 .9 1 1.4 2.1.9l6.1-2.9c.8-.4 1.9.4 2.8 0l6.1 2.9c1.1.5 2.1 0 2.1-.9V8.7Z"/><path d="m21.9 16.2-6.1-2.9c-.8-.4-1.9-.4-2.8 0L6.9 16.2c-1.1.5-2.1 0-2.1-.9v-6.5c0-.9 1-1.4 2.1-.9l6.1 2.9c.8.4 1.9.4 2.8 0l6.1-2.9c1.1-.5 2.1 0 2.1.9v6.5c0 .9-1 1.4-2.1.9Z"/></svg>
+                <span>Truck Turnaround<br>   System</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('operations_dashboard') }}" class="{{ 'active' if 'Operations' in title else '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M3 21v-3.09c0-.42.17-.83.47-1.13L16.6 3.63c.2-.2.45-.3.7-.3.27 0 .52.1.7.3l2.84 2.83c.2.2.3.45.3.7 0 .27-.1.52-.3.7L9.22 19.3c-.3.3-.7.47-1.13.47H5c-1.1 0-2-.9-2-2Z"/><path d="m16 5 3 3"/></svg>Operations</a></li>
+                <li><a href="{{ url_for('supervisor_dashboard') }}" class="{{ 'active' if 'Supervisor' in title else '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 12h3v5"/><path d="M10 9v3a1 1 0 0 1-1-1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3"/><path d="M14 12h3v5"/><path d="M17 9v3a1 1 0 0 1-1-1h-2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3"/></svg>Supervisor</a></li>
+                <li><a href="{{ url_for('executive_dashboard') }}" class="{{ 'active' if 'Executive' in title else '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>Executive</a></li>
+                <li><a href="{{ url_for('admin_panel') }}" class="{{ 'active' if 'Admin' in title else '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l-.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1 0-2l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>Admin</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>{{ title }}</h1>
+                <div class="header-actions">
+                    {% if g.user %}
+                    <div class="user-profile">
+                        <span class="user-initial">{{ g.user[0].upper() }}</span>
+                        <span class="user-name">{{ g.user }}</span>
+                        <a href="{{ url_for('logout') }}" class="logout-link" title="Logout">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="flash-messages">
+                {% for category, message in messages %}
+                  <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <div class="content-body">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    
+    <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+</body>
+</html>
